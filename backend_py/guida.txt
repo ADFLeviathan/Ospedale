@@ -1,0 +1,25 @@
+# Per creare una directory .venv
+# 💬 Go to the home directory
+# cd
+# 💬 Create a directory for all your code projects
+# mkdir code
+# # 💬 Enter into that code directory
+# cd code
+# 💬 Create a directory for this project
+# mkdir nomeProgetto
+# 💬 Enter into that project directory
+# cd nomeProgetto
+# #python -m venv .venv
+# attivalo: .venv\Scripts\Activate.ps1
+
+# crea un gitignore: echo "*" > .venv/.gitignore
+
+# #installa fastapi import: pip install "fastapi[standard]" installa anche unicorn
+
+# crea una cartella src in cui mettere il main. ora il server si avvia con uvicorn src.main:app --reload
+# crea una cartella router in cui mettere gli endpoint
+# crea un file database.py in cui depositare i dati, in questo caso i post
+# crea un file schemas.py in blog in cui importare gli schemi per validazioni ecc
+# pip install alembic sqlalchemy asyncpg
+# alembic init -t async migrations per creare un file alembic.ini e una cartella migrations
+# pip freeze > requirements.txt per creare un file in cui sono visibili i pacchetti utilizzati
