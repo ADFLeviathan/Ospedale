@@ -1,9 +1,7 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { User, Mail, Phone, Edit2, Save, X, Lock } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Input } from "../minicomp/input";
 import { Button } from "../minicomp/pulsante";
-import axios from "axios";
 import type { Medico } from "../minicomp/export_types";
 import { useProfiloStore } from "./medici_stores/profiloMedicoStore";
 
