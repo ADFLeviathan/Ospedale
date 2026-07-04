@@ -1,5 +1,5 @@
 import { X } from "lucide-react";
-import type { Medico, Disponibilita, PrenotazioneJoinPM } from "../../App";
+import type { Medico, Disponibilita, PrenotazioneJoinPM } from "./export_types";
 import { useState } from "react";
 
 type Props = {
