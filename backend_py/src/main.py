@@ -35,7 +35,7 @@ load_dotenv()
 origins = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
-    "https://ospedale-2rkgmg5cy-alesdf.vercel.app",
+    "https://ospedale-pied.vercel.app",
     "https://ospedale.onrender.com/me",
 ]
 
