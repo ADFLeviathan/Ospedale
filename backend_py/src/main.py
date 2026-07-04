@@ -32,7 +32,12 @@ load_dotenv()
 
 # per evitare che il browser blocchi le richieste poiché
 # React (localhost:5173) e FastAPI (127.0.0.1:8000) sono considerati origini diverse.
-origins = ["http://localhost:5173", "http://127.0.0.1:5173"]
+origins = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+    "https://ospedale-2rkgmg5cy-alesdf.vercel.app",
+    "https://ospedale.onrender.com/me",
+]
 
 limiter = Limiter(key_func=get_remote_address)
 
