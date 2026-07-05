@@ -22,6 +22,9 @@ from src.Account.security import sign_jwt
 from slowapi import Limiter
 from slowapi.util import get_remote_address
 from fastapi import Request
+import os
+
+IS_PROD = os.getenv("ENV") == "production"
 
 limiter = Limiter(key_func=get_remote_address)
 
@@ -87,13 +90,13 @@ async def login(
     print(token)
 
     response.set_cookie(
-        key="access_token",
-        value=token,
-        httponly=True,
-        secure=False,  # samesite="none" richiede secure=True
-        samesite="lax",
-        max_age=60 * 60,
-    )
+    key="access_token",
+    value=token,
+    httponly=True,
+    secure=IS_PROD,
+    samesite="none" if IS_PROD else "lax",
+    max_age=60 * 60,
+)
 
     return {
         # **token_data,  # ← {"access_token": "..."}
@@ -104,8 +107,8 @@ async def login(
 @auth.post("/logout")
 async def logout(response: Response):
     response.set_cookie(
-        "access_token", value="", httponly=True, secure=False, samesite="lax", max_age=0
-    )
+    "access_token", value="", httponly=True, secure=IS_PROD, samesite="none" if IS_PROD else "lax", max_age=0
+)
     return {"message": "Logout effettuato"}
 
 

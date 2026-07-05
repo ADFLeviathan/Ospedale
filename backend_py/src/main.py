@@ -28,6 +28,10 @@ from starlette_csrf.middleware import CSRFMiddleware
 from src.config import settings
 from dotenv import load_dotenv
 
+import os
+
+IS_PROD = os.getenv("ENV") == "production"
+
 load_dotenv()
 
 # per evitare che il browser blocchi le richieste poiché
@@ -36,7 +40,7 @@ origins = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
     "https://ospedale-pied.vercel.app",
-]
+] 
 
 limiter = Limiter(key_func=get_remote_address)
 
@@ -53,6 +57,8 @@ app.add_middleware(
     secret=settings.csrf_secret,
     cookie_name="csrftoken",
     header_name="x-csrftoken",
+    cookie_secure=IS_PROD,
+    cookie_samesite="none" if IS_PROD else "lax",
 )
 
 app.add_middleware(
