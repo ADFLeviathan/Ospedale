@@ -26,7 +26,6 @@ export const useLoginStore = create<LoginState>((set, get) => ({
   login: async (username, password) => {
     set({ loading: true, error: null });
     try {
-      await api.get("/csrf");
       const res = await api.post("/login", {
         username,
         password,

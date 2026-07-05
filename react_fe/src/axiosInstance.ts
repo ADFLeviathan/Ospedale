@@ -1,24 +1,32 @@
 import axios from "axios";
 
-function getCookie(name: string): string | null {
-  const match = document.cookie.match(new RegExp("(^| )" + name + "=([^;]+)")); //cattura tutto quello che viene dopo = fino al ; successivo (cioè il valore)
-  return match ? match[2] : null;
-}
-
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL || "http://localhost:8000",
   withCredentials: true,
-  xsrfCookieName: "csrftoken",
-  xsrfHeaderName: "x-csrftoken",
 });
 
-//Interceptor: precede di ogni richiesta
-api.interceptors.request.use((config) => {
+let csrfToken: string | null = null;
+
+async function fetchCsrfToken(): Promise<string | null> {
+  const res = await api.get("/csrf");
+  return res.data.csrf_token;
+}
+
+async function ensureCsrfToken(): Promise<void> {
+  if (csrfToken) return;
+  let token = await fetchCsrfToken();
+  if (!token) {
+    token = await fetchCsrfToken();
+  }
+  csrfToken = token;
+}
+
+api.interceptors.request.use(async (config) => {
   const method = config.method?.toLowerCase();
   if (["post", "patch", "put", "delete"].includes(method ?? "")) {
-    const csrf = getCookie("csrftoken");
-    if (csrf) {
-      config.headers["x-csrftoken"] = csrf;
+    await ensureCsrfToken();
+    if (csrfToken) {
+      config.headers["x-csrftoken"] = csrfToken;
     }
   }
   return config;

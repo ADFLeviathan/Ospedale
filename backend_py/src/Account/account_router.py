@@ -33,8 +33,8 @@ auth = APIRouter(tags=["Registrazione, Login e Logout"])
 
 
 @auth.get("/csrf")
-def get_csrf(request: Request):
-    csrf_token = request.scope.get("csrftoken")
+async def get_csrf(request: Request):
+    csrf_token = request.cookies.get("csrftoken")
     return {"message": "CSRF COOKIE SET", "csrf_token": csrf_token}
 
 
