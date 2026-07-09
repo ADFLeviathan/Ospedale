@@ -97,9 +97,9 @@ export function MedicoRegistrazione({
         <div className="text-center mb-8">
           <div className="flex items-center justify-center gap-3 mb-4">
             <Heart className="w-10 h-10 text-blue-600" />
-            <h1 className="text-3xl font-bold text-gray-900">MediCare Pro</h1>
+            <h1 className="text-3xl font-bold text-gray-900">Nome app/sito</h1>
           </div>
-          <p className="text-gray-600">Crea il tuo account</p>
+          <p className="text-gray-600">Crea il tuo account come medico</p>
         </div>
 
         {/* Register Card */}
@@ -325,7 +325,7 @@ export function MedicoRegistrazione({
               {/*Conferma Password  */}
               <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
                 <p className="text-sm text-gray-700 font-semibold mb-2">
-                  Requisiti password:
+                  Consigli password:
                 </p>
                 <ul className="text-sm text-gray-600 space-y-1">
                   <li className="flex items-center gap-2">

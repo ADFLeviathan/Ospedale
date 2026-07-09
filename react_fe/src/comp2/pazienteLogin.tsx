@@ -21,7 +21,6 @@ interface LoginProps {
 export function PazienteLogin({
   onLogin,
   onNavigateToRegister,
-  onNavigateToRoleSelector,
   onNavigateToRegisterMedico,
 }: LoginProps) {
   const [username, setUsername] = useState("");
@@ -161,12 +160,7 @@ export function PazienteLogin({
               </button>
             </p>
           </div>
-          <button
-            onClick={onNavigateToRoleSelector}
-            className="text-sm text-gray-500 hover:text-gray-700 hover:underline"
-          >
-            Torna alla selezione ruolo
-          </button>
+         
         </div>
       </div>
     </div>

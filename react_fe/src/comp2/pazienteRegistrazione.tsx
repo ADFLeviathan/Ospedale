@@ -30,7 +30,6 @@ interface RegisterProps {
 export function Register({
   onRegister,
   onNavigateToLogin,
-  onNavigateToRoleSelector,
 }: RegisterProps) {
   const [formData, setFormData] = useState({
     nome: "",
@@ -131,7 +130,7 @@ export function Register({
         <div className="text-center mb-8">
           <div className="flex items-center justify-center gap-3 mb-4">
             <Heart className="w-10 h-10 text-blue-600" />
-            <h1 className="text-3xl font-bold text-gray-900">MediCare Pro</h1>
+            <h1 className="text-3xl font-bold text-gray-900">Nome app/sito</h1>
           </div>
           <p className="text-gray-600">Crea il tuo account</p>
         </div>
@@ -149,7 +148,7 @@ export function Register({
               {/* Role Selection */}
               <div className="space-y-2">
                 <label className="text-sm text-gray-700">Tipo di Account</label>
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1">
                   <button
                     type="button"
                     onClick={() => setSelectedRole("patient")}
@@ -166,22 +165,7 @@ export function Register({
                       </div>
                     </div>
                   </button>
-                  <button
-                    type="button"
-                    onClick={() => setSelectedRole("admin")}
-                    className={`p-4 rounded-lg border-2 transition-all ${
-                      selectedRole === "admin"
-                        ? "border-blue-500 bg-blue-50 text-blue-700"
-                        : "border-gray-200 bg-white text-gray-700 hover:border-gray-300"
-                    }`}
-                  >
-                    <div className="text-center">
-                      <div className="font-semibold mb-1">Amministratore</div>
-                      <div className="text-xs">
-                        Gestione completa del sistema
-                      </div>
-                    </div>
-                  </button>
+               
                 </div>
               </div>
 
@@ -478,7 +462,7 @@ export function Register({
               {/*Conferma Password  */}
               <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
                 <p className="text-sm text-gray-700 font-semibold mb-2">
-                  Requisiti password:
+                  Consigli sulla password:
                 </p>
                 <ul className="text-sm text-gray-600 space-y-1">
                   <li className="flex items-center gap-2">
@@ -550,12 +534,7 @@ export function Register({
               Accedi ora
             </button>
           </p>
-          <button
-            onClick={onNavigateToRoleSelector}
-            className="text-sm text-gray-500 hover:text-gray-700 hover:underline"
-          >
-            Torna alla selezione ruolo
-          </button>
+          
         </div>
       </div>
     </div>
