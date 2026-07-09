@@ -1,7 +1,6 @@
 import time
 
-from fastapi import HTTPException, Request
-from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
+from fastapi import HTTPException
 from src.config import settings
 import jwt  # pip install PyJWT
 

@@ -1,13 +1,12 @@
-from pwdlib import PasswordHash
-
 from src.database import Base
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-from sqlalchemy import ForeignKey, Integer, Text, Boolean, Time, func, DateTime, Date
-from typing import List, TYPE_CHECKING
+from sqlalchemy import ForeignKey, Integer, Boolean, Time, func, DateTime
+from typing import TYPE_CHECKING
 from datetime import datetime
 
 if TYPE_CHECKING:
     from src.medici.medici_model import Medico
+
 
 class Disponibilita_medico(Base):
     __tablename__ = "disponibilita_medici"

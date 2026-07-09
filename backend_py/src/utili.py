@@ -1,6 +1,5 @@
 from fastapi import Depends, HTTPException, Request
 from fastapi.security import (
-    HTTPBearer,
     OAuth2PasswordBearer,
 )
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -49,7 +48,7 @@ async def conta_referti(session: AsyncSession) -> dict:
 
 # non aperti
 async def conta_referti_non_aperti(session: AsyncSession) -> dict:
-    query_non_aperti = select(func.count(Referto.id)).where(Referto.aperto == False)
+    query_non_aperti = select(func.count(Referto.id)).where(not Referto.aperto)
     result = await session.execute(query_non_aperti)
     non_aperti = result.scalar_one()
     return {

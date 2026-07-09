@@ -1,6 +1,6 @@
 from src.database import Base
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-from sqlalchemy import ForeignKey, Integer, Text, Boolean, Time, func, DateTime, Date
+from sqlalchemy import ForeignKey, Integer, Text, func, DateTime, Date
 from typing import List, TYPE_CHECKING
 from datetime import date, datetime
 from src.medici.medici_reparts import medico_reparto

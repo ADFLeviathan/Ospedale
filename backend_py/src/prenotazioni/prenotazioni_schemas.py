@@ -1,7 +1,7 @@
 from datetime import date, datetime, time
 from typing import Optional
 from src.schemas import CustomBase
-from pydantic import PositiveInt, Field
+from pydantic import PositiveInt
 
 
 class PrenotazioneResponse(CustomBase):

@@ -1,7 +1,6 @@
-from datetime import date, datetime
-from typing import Optional
+from datetime import datetime
 from src.schemas import CustomBase
-from pydantic import PositiveInt, Field, EmailStr
+from pydantic import PositiveInt, Field
 
 
 class RepartoResponse(CustomBase):

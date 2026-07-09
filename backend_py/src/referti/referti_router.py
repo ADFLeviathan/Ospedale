@@ -1,5 +1,3 @@
-from sqlite3 import IntegrityError
-from weakref import ref
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
@@ -15,7 +13,6 @@ from src.utili import (
 )
 from src.referti.referti_model import Referto
 from src.database import get_async_session
-from datetime import datetime, timezone
 
 
 from src.referti.referti_schemas import *

@@ -1,11 +1,8 @@
-import select
-from fastapi import Depends
-from src.database import Base, get_async_session
+from src.database import Base
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-from sqlalchemy import ForeignKey, Integer, Text, Boolean, func, DateTime, Date
-from typing import List, TYPE_CHECKING
+from sqlalchemy import ForeignKey, Integer, Text, Boolean, func, DateTime
+from typing import TYPE_CHECKING
 from datetime import datetime
-from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 
 
 if TYPE_CHECKING:

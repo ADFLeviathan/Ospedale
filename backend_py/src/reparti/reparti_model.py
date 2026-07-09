@@ -1,8 +1,7 @@
-from pwdlib import PasswordHash
 
 from src.database import Base
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-from sqlalchemy import Integer, Text, Boolean, func, DateTime, Date
+from sqlalchemy import Integer, Text, func, DateTime
 from typing import List, TYPE_CHECKING
 from datetime import datetime
 from src.medici.medici_reparts import medico_reparto

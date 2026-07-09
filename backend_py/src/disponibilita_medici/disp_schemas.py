@@ -1,7 +1,6 @@
-from datetime import date, datetime
 from datetime import time, datetime
 from src.schemas import CustomBase
-from pydantic import PositiveInt, Field, EmailStr
+from pydantic import PositiveInt
 
 
 class DisponibilitaResponse(CustomBase):

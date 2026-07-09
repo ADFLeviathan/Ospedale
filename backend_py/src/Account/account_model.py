@@ -1,11 +1,9 @@
 from src.database import Base
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-from sqlalchemy import Integer, Text, Boolean, func, DateTime, Enum as sqlenum
-from typing import List, TYPE_CHECKING
+from sqlalchemy import Integer, Text, func, DateTime, Enum as sqlenum
+from typing import TYPE_CHECKING
 from datetime import datetime
 from enum import Enum
-from sqlalchemy import Enum as SQLenum
-import hashlib
 from pwdlib import PasswordHash
 
 if TYPE_CHECKING:

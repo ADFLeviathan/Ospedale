@@ -1,7 +1,7 @@
-from datetime import date, datetime
+from datetime import datetime
 from typing import Optional
 from src.schemas import CustomBase
-from pydantic import PositiveInt, Field, EmailStr
+from pydantic import PositiveInt, Field
 
 
 class RefertoResponse(CustomBase):

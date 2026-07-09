@@ -1,6 +1,4 @@
-from unittest import result
-from fastapi import APIRouter, Depends, HTTPException, Request, UploadFile
-from fastapi.responses import FileResponse, HTMLResponse
+from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 from src.reparti.reparti_schemas import CreaReparto, RepartoResponse
@@ -10,7 +8,6 @@ from src.database import get_async_session
 
 from src.reparti.reparti_schemas import *
 from typing import List
-from sqlalchemy.exc import IntegrityError
 
 reparti = APIRouter(prefix="/reparti", tags=["reparti"])
 
