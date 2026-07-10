@@ -16,6 +16,7 @@ dist-ssr
 .venv/
 venv/
 .env
+guida.txt
 
 # Editor directories and files
 .vscode/*
